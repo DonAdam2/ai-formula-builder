@@ -737,6 +737,23 @@ export const equations: Equation[] = [
     expectedVariables: ['k', 'n', 'p'],
     category: 'Probability',
   },
+  {
+    id: 'uniform-mean',
+    name: 'Uniform Distribution Mean',
+    description: 'Expected value of a continuous uniform random variable on [a, b].',
+    template:
+      '$$E[X] = \\frac{1}{b-a} \\int_a^b x \\, dx = \\frac{1}{b-a} \\left[ \\frac{x^2}{2} \\right]_a^b = \\frac{1}{b-a} \\cdot \\frac{b^2 - a^2}{2}$$',
+    expectedVariables: ['a', 'b', 'x'],
+    category: 'Probability',
+  },
+  {
+    id: 'transformed-joint-pmf',
+    name: 'Transformed Joint PMF',
+    description: 'PMF of a sum expressed via a binomial coefficient and the joint PMF.',
+    template: '$$f_Y(x+y) = \\binom{2}{x+y} f_{X_1, X_2}(x, y)$$',
+    expectedVariables: ['x', 'y'],
+    category: 'Probability',
+  },
 ];
 
 export const getEquationById = (id: string): Equation | undefined =>
