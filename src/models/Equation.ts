@@ -1,8 +1,5 @@
 export type EquationInteractiveKind =
-  | 'fraction'
-  | 'matrix'
-  | 'matrix-addition'
-  | 'matrix-multiplication';
+  'fraction' | 'matrix' | 'matrix-addition' | 'matrix-multiplication';
 
 export interface Equation {
   id: string;

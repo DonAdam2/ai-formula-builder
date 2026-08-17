@@ -45,7 +45,12 @@ describe('textFormatting', () => {
 
   it('keeps superscript text when turning superscript off at the end of the run', () => {
     const base = 'y = x2';
-    const wrapped = toggleInlineFormat(base, base.indexOf('2'), base.indexOf('2') + 1, 'superscript');
+    const wrapped = toggleInlineFormat(
+      base,
+      base.indexOf('2'),
+      base.indexOf('2') + 1,
+      'superscript'
+    );
     expect(wrapped.nextValue).toBe('y = x{{sup}}2{{/sup}}');
     expect(
       isInlineFormatActive(
@@ -83,9 +88,9 @@ describe('textFormatting', () => {
     // If we used the stale range, toggle would unwrap. Collapsed end must exit.
     const atEnd = toggleInlineFormat(value, innerEnd, innerEnd, 'superscript');
     expect(atEnd.nextValue).toBe(value);
-    expect(isInlineFormatActive(atEnd.nextValue, atEnd.selectionStart, atEnd.selectionEnd, 'superscript')).toBe(
-      false
-    );
+    expect(
+      isInlineFormatActive(atEnd.nextValue, atEnd.selectionStart, atEnd.selectionEnd, 'superscript')
+    ).toBe(false);
 
     // Explicit selection of the run still removes the format.
     const removed = toggleInlineFormat(value, innerStart, innerEnd, 'superscript');

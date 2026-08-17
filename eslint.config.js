@@ -138,6 +138,14 @@ module.exports = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
 
+      // eslint-plugin-react-hooks 7.1 bundles the React Compiler rules into its
+      // `recommended` preset (spread above). They flag pre-existing boilerplate
+      // and are not adopted here — turn them off to keep prior lint behavior.
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/immutability': 'off',
+      'react-hooks/preserve-manual-memoization': 'off',
+
       // Import ordering rules
       'import/order': [
         'error',

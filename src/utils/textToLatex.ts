@@ -86,9 +86,7 @@ export const convertCalculus = (line: string): string => {
 const convertAsciiMathLine = (line: string): string => convertCalculus(convertFractions(line));
 
 type LineToken =
-  | { kind: 'matrix'; cells: string[] }
-  | { kind: 'op'; op: string }
-  | { kind: 'text'; text: string };
+  { kind: 'matrix'; cells: string[] } | { kind: 'op'; op: string } | { kind: 'text'; text: string };
 
 const splitOnTimes = (trimmed: string): { before: string; after: string } | null => {
   const symbolMatch = trimmed.match(/^(.*?)([×*])(.*)$/);
@@ -194,9 +192,7 @@ const matrixRowsToLatex = (rows: string[][]): string => {
 };
 
 type StructureItem =
-  | { type: 'matrix'; column: number }
-  | { type: 'op'; op: string }
-  | { type: 'text'; text: string };
+  { type: 'matrix'; column: number } | { type: 'op'; op: string } | { type: 'text'; text: string };
 
 const convertMatrixBlock = (lines: string[]): string => {
   const { indentLatex, content: firstContent } = leadingIndentToLatex(lines[0] ?? '');

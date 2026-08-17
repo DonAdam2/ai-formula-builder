@@ -20,7 +20,6 @@ const Portal: FC<PropsWithChildren<PortalInterface>> = ({
     if (!element) {
       element = createWrapperAndAppendToBody(wrapperElement, wrapperElementId);
     }
-    // eslint-disable-next-line
     setWrapper(element);
   }, [wrapperElementId, wrapperElement]);
 

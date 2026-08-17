@@ -46,7 +46,6 @@ const Tooltip: FC<PropsWithChildren<ToolTipInterface>> = ({
     isClickTrigger = useMemo(() => trigger === TooltipTriggerEnum.CLICK, [trigger]);
 
   //set children width, height and visibility after DOM measurement
-  /* eslint-disable react-hooks/set-state-in-effect -- DOM measurement requires effect */
   useEffect(() => {
     if (show && childrenWidth === undefined && childrenHeight === undefined) {
       setChildrenHeight(tooltipMessage.current?.offsetHeight);
@@ -56,7 +55,6 @@ const Tooltip: FC<PropsWithChildren<ToolTipInterface>> = ({
       setIsTooltipVisible(true);
     }
   }, [show, childrenWidth, childrenHeight, isTooltipVisible]);
-  /* eslint-enable react-hooks/set-state-in-effect */
 
   const showTooltip = () => {
     if (!show) {
@@ -158,7 +156,6 @@ const Tooltip: FC<PropsWithChildren<ToolTipInterface>> = ({
     const newStyles = getStylesList();
     if (newStyles.top !== stylesRef.current.top || newStyles.left !== stylesRef.current.left) {
       stylesRef.current = newStyles;
-      // eslint-disable-next-line
       setStyles(newStyles);
     }
   }, [getStylesList]);

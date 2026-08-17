@@ -3,10 +3,7 @@ import { ReactNode } from 'react';
 import { ButtonInterface } from '@/components/shared/button/Button.types';
 
 export type ModalAnimationType =
-  | 'slide-in-down'
-  | 'slide-in-up'
-  | 'slide-in-right'
-  | 'slide-in-left';
+  'slide-in-down' | 'slide-in-up' | 'slide-in-right' | 'slide-in-left';
 
 export interface ModalHeaderConfig {
   enableHeader?: boolean;

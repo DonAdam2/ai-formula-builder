@@ -130,11 +130,7 @@ describe('richTextDisplay', () => {
     const modelCaret = displayCaretToModel(map, afterEnter.displayCaret);
     expect(isInlineFormatActive(afterEnter.nextModel, modelCaret, modelCaret, 'bold')).toBe(true);
 
-    const typed = applyDisplayEdit(
-      afterEnter.nextModel,
-      `${withNewline}x`,
-      withNewline.length + 1
-    );
+    const typed = applyDisplayEdit(afterEnter.nextModel, `${withNewline}x`, withNewline.length + 1);
     expect(typed.nextModel).toBe('{{b}}hello{{/b}}\n{{b}}x{{/b}}');
   });
 
@@ -166,7 +162,12 @@ describe('richTextDisplay', () => {
     );
     expect(exited.selectionStart).toBe('y = x{{sup}}2{{/sup}}'.length);
     expect(
-      isInlineFormatActive(exited.nextValue, exited.selectionStart, exited.selectionEnd, 'superscript')
+      isInlineFormatActive(
+        exited.nextValue,
+        exited.selectionStart,
+        exited.selectionEnd,
+        'superscript'
+      )
     ).toBe(false);
 
     // Display caret at end maps inside the run without model affinity — pass the
@@ -180,7 +181,12 @@ describe('richTextDisplay', () => {
     );
     expect(typed.nextModel).toBe('y = x{{sup}}2{{/sup}}z');
     expect(
-      isInlineFormatActive(typed.nextModel, typed.nextModel.length, typed.nextModel.length, 'superscript')
+      isInlineFormatActive(
+        typed.nextModel,
+        typed.nextModel.length,
+        typed.nextModel.length,
+        'superscript'
+      )
     ).toBe(false);
   });
 });
